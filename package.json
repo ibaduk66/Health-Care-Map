@@ -1,0 +1,25 @@
+{
+  "name": "ibad-healthcare-gis",
+  "version": "1.0.0",
+  "description": "Database-driven healthcare facility GIS for Islamabad and Rawalpindi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js"
+  },
+  "keywords": [
+    "gis",
+    "postgres",
+    "postgis",
+    "leaflet",
+    "healthcare"
+  ],
+  "author": "ibad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}

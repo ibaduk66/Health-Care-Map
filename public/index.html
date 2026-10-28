@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Facility GIS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Database-driven Web GIS</p>
+        <h1>Healthcare Facility GIS</h1>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Filters</h2>
+          <label>
+            District
+            <select id="district-filter">
+              <option value="All">All</option>
+            </select>
+          </label>
+
+          <label>
+            Facility type
+            <select id="facility-filter">
+              <option value="All">All</option>
+            </select>
+          </label>
+
+          <label>
+            Search
+            <input id="search-input" type="text" placeholder="Search facility or area" />
+          </label>
+
+          <button id="refresh-button" type="button">Apply filters</button>
+        </section>
+
+        <section class="panel">
+          <h2>Selected facility</h2>
+          <div id="facility-summary">Choose a point on the map.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Add or update facility</h2>
+          <form id="facility-form">
+            <input id="facility-id" type="hidden" name="id" />
+
+            <label>
+              Facility name
+              <input id="facility-name" name="facility_name" type="text" required />
+            </label>
+
+            <label>
+              Facility type
+              <select id="facility-type" name="facility_type" required>
+                <option value="Hospital">Hospital</option>
+                <option value="Clinic">Clinic</option>
+                <option value="Diagnostic Center">Diagnostic Center</option>
+              </select>
+            </label>
+
+            <label>
+              District
+              <select id="district" name="district" required>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Rawalpindi">Rawalpindi</option>
+              </select>
+            </label>
+
+            <label>
+              Location name
+              <input id="location-name" name="location_name" type="text" />
+            </label>
+
+            <label>
+              Address
+              <textarea id="address-text" name="address_text" rows="3" required></textarea>
+            </label>
+
+            <label>
+              Phone
+              <input id="phone" name="phone" type="text" />
+            </label>
+
+            <label>
+              Services
+              <textarea id="services" name="services" rows="2"></textarea>
+            </label>
+
+            <label>
+              Emergency
+              <select id="emergency" name="emergency">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+            </label>
+
+            <div class="coord-grid">
+              <label>
+                Latitude
+                <input id="lat" name="lat" type="number" step="0.0000001" required />
+              </label>
+              <label>
+                Longitude
+                <input id="lon" name="lon" type="number" step="0.0000001" required />
+              </label>
+            </div>
+
+            <label>
+              Admin password
+              <input id="admin-password" name="admin_password" type="password" required />
+            </label>
+
+            <div class="button-row">
+              <button type="submit" id="save-button">Save facility</button>
+              <button type="button" class="secondary" id="reset-form">Reset</button>
+            </div>
+          </form>
+        </section>
+      </aside>
+
+      <section class="map-panel">
+        <div id="status" class="status">Loading facility records…</div>
+        <div id="map"></div>
+        <div class="footnote">
+          Public demo records from OpenStreetMap/Nominatim for academic GIS work only.
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
